@@ -22,6 +22,9 @@
     var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     
+    var timeOffset = 0; // Offset in milliseconds from local time
+    var useLocalTime = false;
+    
     function padZero(num) {
         return num < 10 ? '0' + num : num.toString();
     }
@@ -47,8 +50,17 @@
         }, 600);
     }
     
-    function updateClock() {
+    function getCurrentTime() {
         var now = new Date();
+        if (!useLocalTime) {
+            // Apply offset from world time API
+            now = new Date(now.getTime() + timeOffset);
+        }
+        return now;
+    }
+    
+    function updateClock() {
+        var now = getCurrentTime();
         var hours = now.getHours();
         var minutes = now.getMinutes();
         
@@ -99,6 +111,32 @@
         }
     }
     
+    // Fetch world time from API
+    function syncWorldTime() {
+        // Using WorldTimeAPI - free and reliable
+        fetch('https://worldtimeapi.org/api/ip')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                var serverTime = new Date(data.datetime);
+                var localTime = new Date();
+                timeOffset = serverTime.getTime() - localTime.getTime();
+                useLocalTime = false;
+                console.log('Synced with world time. Offset:', timeOffset, 'ms');
+            })
+            .catch(function(error) {
+                console.log('Failed to sync with world time, using local time:', error);
+                useLocalTime = true;
+            });
+    }
+    
+    // Sync time on load
+    syncWorldTime();
+    
+    // Re-sync every hour to maintain accuracy
+    setInterval(syncWorldTime, 3600000);
+    
     // Initialize clock immediately
     updateClock();
     
@@ -146,8 +184,6 @@
                 elem.mozRequestFullScreen();
             } else if (elem.msRequestFullscreen) {
                 elem.msRequestFullscreen();
-            } else {
-                alert('Fullscreen not supported in this browser');
             }
         } catch (e) {
             console.log('Fullscreen error:', e);

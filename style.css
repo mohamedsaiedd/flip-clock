@@ -481,3 +481,125 @@ body.light-theme .flip-card-back-top::after {
     -ms-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+
+/* iPad Pro and larger tablets (1024px and up) */
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .flip-card {
+        width: 22vw;
+        height: 30vh;
+        font-size: 22vw;
+    }
+    
+    .flip-card-top,
+    .flip-card-back-top {
+        line-height: 30vh;
+    }
+    
+    .digit-group {
+        padding: 4vh 3vw;
+    }
+    
+    .time-group {
+        margin: 0 3vw;
+    }
+    
+    .period-indicator {
+        font-size: 3vw;
+        left: 1.5vw;
+        bottom: 2vh;
+    }
+    
+    .date {
+        font-size: 2.5vw;
+        margin-top: 5vh;
+    }
+}
+
+/* iPad and iPad Mini (768px to 1023px) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .flip-card {
+        width: 28vw;
+        height: 35vh;
+        font-size: 28vw;
+    }
+    
+    .flip-card-top,
+    .flip-card-back-top {
+        line-height: 35vh;
+    }
+    
+    .digit-group {
+        padding: 4vh 3vw;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        border-radius: 40px;
+    }
+    
+    .time-group {
+        margin: 0 3vw;
+    }
+    
+    .flip-unit {
+        margin: 0 1vw;
+    }
+    
+    .period-indicator {
+        font-size: 3.5vw;
+        left: 2vw;
+        bottom: 2vh;
+    }
+    
+    .date {
+        font-size: 3vw;
+        margin-top: 5vh;
+    }
+}
+
+/* Mobile and smaller tablets (below 768px) */
+@media screen and (max-width: 767px) {
+    .flip-card {
+        width: 32vw;
+        height: 38vh;
+        font-size: 32vw;
+    }
+    
+    .flip-card-top,
+    .flip-card-back-top {
+        line-height: 38vh;
+    }
+    
+    .digit-group {
+        padding: 3vh 2.5vw;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
+    }
+    
+    .time-group {
+        margin: 0 2vw;
+    }
+    
+    .flip-unit {
+        margin: 0 1vw;
+    }
+    
+    .period-indicator {
+        font-size: 4vw;
+        left: 2vw;
+        bottom: 2vh;
+    }
+    
+    .date {
+        font-size: 3.5vw;
+        margin-top: 4vh;
+    }
+    
+    .control-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .control-btn .icon {
+        font-size: 20px;
+    }
+}
