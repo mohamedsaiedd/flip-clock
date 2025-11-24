@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Classic flip clock with smooth animations">
+    <title>Flip Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <button id="theme-toggle" class="control-btn" title="Toggle Theme">
+            <span class="icon">☀️</span>
+        </button>
+        <button id="fullscreen-toggle" class="control-btn" title="Toggle Fullscreen">
+            <span class="icon">⛶</span>
+        </button>
+    </div>
+    
+    <div class="clock-container">
+        <div class="flip-clock">
+            <!-- Time Group with Period -->
+            <div class="time-group">
+                <!-- Hours Group -->
+                <div class="digit-group">
+                    <!-- Period Indicator inside hours card -->
+                    <div class="period-indicator" id="period">PM</div>
+                    
+                    <div class="flip-unit">
+                        <div class="flip-card" id="hours-tens">
+                            <div class="flip-card-top">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-bottom">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-back-top">
+                                    <span>0</span>
+                                </div>
+                                <div class="flip-card-back-bottom">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-unit">
+                        <div class="flip-card" id="hours-ones">
+                            <div class="flip-card-top">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-bottom">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-back-top">
+                                    <span>0</span>
+                                </div>
+                                <div class="flip-card-back-bottom">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Minutes Group -->
+            <div class="time-group">
+                <div class="digit-group">
+                    <div class="flip-unit">
+                        <div class="flip-card" id="minutes-tens">
+                            <div class="flip-card-top">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-bottom">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-back-top">
+                                    <span>0</span>
+                                </div>
+                                <div class="flip-card-back-bottom">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-unit">
+                        <div class="flip-card" id="minutes-ones">
+                            <div class="flip-card-top">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-bottom">
+                                <span>0</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-back-top">
+                                    <span>0</span>
+                                </div>
+                                <div class="flip-card-back-bottom">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="date" id="date">Sunday, November 24, 2025</div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
