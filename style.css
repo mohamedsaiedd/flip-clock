@@ -147,7 +147,7 @@ body.light-theme {
 
 .time-group {
     display: inline-block;
-    margin: 0 2vw;
+    margin: 0 1.5vw;
     vertical-align: middle;
     position: relative;
 }
@@ -156,33 +156,33 @@ body.light-theme {
     display: inline-block;
     position: relative;
     background: rgba(40, 40, 40, 0.6);
-    padding: 3vh 2vw;
-    -webkit-border-radius: 3vw;
-    -moz-border-radius: 3vw;
-    border-radius: 3vw;
-    -webkit-box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.5);
+    padding: 2.5vh 1.5vw;
+    -webkit-border-radius: 2.5vw;
+    -moz-border-radius: 2.5vw;
+    border-radius: 2.5vw;
+    -webkit-box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.5);
 }
 
 body.light-theme .digit-group {
     background: rgba(255, 255, 255, 0.8);
-    -webkit-box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.1);
 }
 
 .flip-unit {
     display: inline-block;
-    margin: 0 0.5vw;
+    margin: 0 0.4vw;
     vertical-align: middle;
 }
 
 .flip-card {
     position: relative;
-    width: 20vw;
-    height: 28vh;
-    font-size: 20vw;
+    width: 18vw;
+    height: 26vh;
+    font-size: 18vw;
     font-weight: 700;
     color: #c0c0c0;
     text-align: center;
@@ -222,7 +222,7 @@ body.light-theme .flip-card {
 
 .flip-card-top {
     top: 0;
-    line-height: 28vh;
+    line-height: 26vh;
     -webkit-border-bottom-left-radius: 0;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-radius-bottomleft: 0;
@@ -288,7 +288,7 @@ body.light-theme .flip-card-back-bottom {
 
 .flip-card-back-top {
     top: 0;
-    line-height: 28vh;
+    line-height: 26vh;
     -webkit-border-bottom-left-radius: 0;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-radius-bottomleft: 0;
@@ -521,7 +521,7 @@ body.light-theme .flip-card {
 
 .flip-card-top {
     top: 0;
-    line-height: 28vh;
+    line-height: 26vh;
     -webkit-border-bottom-left-radius: 0;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-radius-bottomleft: 0;
@@ -587,7 +587,7 @@ body.light-theme .flip-card-back-bottom {
 
 .flip-card-back-top {
     top: 0;
-    line-height: 28vh;
+    line-height: 26vh;
     -webkit-border-bottom-left-radius: 0;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-radius-bottomleft: 0;
