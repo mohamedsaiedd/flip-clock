@@ -22,9 +22,6 @@
     var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     
-    var timeOffset = 0; // Offset in milliseconds from local time
-    var useLocalTime = false;
-    
     function padZero(num) {
         return num < 10 ? '0' + num : num.toString();
     }
@@ -39,28 +36,29 @@
         backTopSpan.textContent = newValue;
         backBottomSpan.textContent = newValue;
         
-        // Add flipping class
-        card.classList.add('flipping');
+        // Add flipping class (with old Safari compatibility)
+        if (card.classList) {
+            card.classList.add('flipping');
+        } else {
+            card.className += ' flipping';
+        }
         
         // After animation completes, update front cards and remove class
         setTimeout(function() {
             topSpan.textContent = newValue;
             bottomSpan.textContent = newValue;
-            card.classList.remove('flipping');
+            
+            // Remove flipping class (with old Safari compatibility)
+            if (card.classList) {
+                card.classList.remove('flipping');
+            } else {
+                card.className = card.className.replace(/\bflipping\b/g, '').trim();
+            }
         }, 600);
     }
     
-    function getCurrentTime() {
-        var now = new Date();
-        if (!useLocalTime) {
-            // Apply offset from world time API
-            now = new Date(now.getTime() + timeOffset);
-        }
-        return now;
-    }
-    
     function updateClock() {
-        var now = getCurrentTime();
+        var now = new Date();
         var hours = now.getHours();
         var minutes = now.getMinutes();
         
@@ -111,32 +109,6 @@
         }
     }
     
-    // Fetch world time from API
-    function syncWorldTime() {
-        // Using WorldTimeAPI - free and reliable
-        fetch('https://worldtimeapi.org/api/ip')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                var serverTime = new Date(data.datetime);
-                var localTime = new Date();
-                timeOffset = serverTime.getTime() - localTime.getTime();
-                useLocalTime = false;
-                console.log('Synced with world time. Offset:', timeOffset, 'ms');
-            })
-            .catch(function(error) {
-                console.log('Failed to sync with world time, using local time:', error);
-                useLocalTime = true;
-            });
-    }
-    
-    // Sync time on load
-    syncWorldTime();
-    
-    // Re-sync every hour to maintain accuracy
-    setInterval(syncWorldTime, 3600000);
-    
     // Initialize clock immediately
     updateClock();
     
@@ -151,13 +123,31 @@
     // Load saved theme
     var savedTheme = localStorage.getItem('flipClockTheme');
     if (savedTheme === 'light') {
-        body.classList.add('light-theme');
+        if (body.classList) {
+            body.classList.add('light-theme');
+        } else {
+            body.className += ' light-theme';
+        }
         themeIcon.textContent = '🌙';
     }
     
     themeToggle.addEventListener('click', function() {
-        body.classList.toggle('light-theme');
-        var isLight = body.classList.contains('light-theme');
+        var isLight;
+        
+        // Toggle class (with old Safari compatibility)
+        if (body.classList) {
+            body.classList.toggle('light-theme');
+            isLight = body.classList.contains('light-theme');
+        } else {
+            if (body.className.indexOf('light-theme') >= 0) {
+                body.className = body.className.replace(/\blight-theme\b/g, '').trim();
+                isLight = false;
+            } else {
+                body.className += ' light-theme';
+                isLight = true;
+            }
+        }
+        
         themeIcon.textContent = isLight ? '🌙' : '☀️';
         localStorage.setItem('flipClockTheme', isLight ? 'light' : 'dark');
     });
